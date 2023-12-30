@@ -13,6 +13,5 @@ Welcome to the GitHub repository of my personal portfolio website! This site is 
 
 - HTML, CSS
 - JavaScript
-- Additional libraries and frameworks (specify if any)
 
 Feel free to explore the website and reach out through the provided contact information for any collaborations or inquiries.
