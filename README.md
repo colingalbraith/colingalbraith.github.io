@@ -1,2 +1,2 @@
-# colingalbraith.github.io
-Github pages repo
+# PersonalWebsite
+My personal website
