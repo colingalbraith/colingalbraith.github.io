@@ -1,393 +1,448 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>My Portfolio</title>
-    <link rel="stylesheet" href="style.css" />
-    <link rel="stylesheet" href="mediaqueries.css" />
-  </head>
-  <body>
-    <nav id="desktop-nav">
-      <div class="logo">Colin Galbraith</div>
-      <div>
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>My Portfolio</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="mediaqueries.css" />
+  <style>
+    /* General styles */
+    @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap");
+
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: "Poppins", sans-serif;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    p {
+      color: rgb(85, 85, 85);
+    }
+
+    /* Loading animation styles */
+    #loading {
+      position: fixed;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      background-color: white;
+      z-index: 9999;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .spinner {
+      border: 4px solid rgba(0, 0, 0, 0.1);
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      border-left-color: #09f;
+      animation: spin 1s ease infinite;
+    }
+
+    @keyframes spin {
+      0% {
+        transform: rotate(0deg);
+      }
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+
+    /* Fade-in animation */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 1s ease-in-out, transform 1s ease-in-out;
+    }
+
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Typing effect styles */
+    #animated-text {
+      display: inline-block;
+    }
+
+    .cursor {
+      display: inline-block;
+      background-color: black;
+      width: 2px;
+      animation: blink 0.7s infinite;
+    }
+
+    @keyframes blink {
+      0%, 50% {
+        opacity: 1;
+      }
+      50.1%, 100% {
+        opacity: 0;
+      }
+    }
+
+    /* Audio player styles */
+    .audio-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+
+    .audio-player {
+      text-align: center;
+    }
+
+    audio {
+      width: 100%;
+      max-width: 500px;
+      margin-bottom: 0.5rem;
+    }
+  </style>
+</head>
+<body>
+  <div id="loading">
+    <div class="spinner"></div>
+  </div>
+  <nav id="desktop-nav">
+    <div class="logo">Colin Galbraith</div>
+    <div>
+      <ul class="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li><a href="#music">Music</a></li> <!-- Added Music link -->
+      </ul>
+    </div>
+  </nav>
+  <nav id="hamburger-nav">
+    <div class="logo">Colin Galbraith</div>
+    <div class="hamburger-menu">
+      <div class="hamburger-icon" onclick="toggleMenu()">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+      <div class="menu-links">
+        <li><a href="#about" onclick="toggleMenu()">About</a></li>
+        <li><a href="#experience" onclick="toggleMenu()">Experience</a></li>
+        <li><a href="#projects" onclick="toggleMenu()">Projects</a></li>
+        <li><a href="#contact" onclick="toggleMenu()">Contact</a></li>
+        <li><a href="#music" onclick="toggleMenu()">Music</a></li> <!-- Added Music link -->
+      </div>
+    </div>
+  </nav>
+  <section id="profile" class="fade-in">
+    <div class="section__pic-container">
+      <img src="./assets/hike.jpg" class="profile_picture" />
+    </div>
+    <div class="section__text">
+      <p class="section__text__p1">Hello, I'm</p>
+      <h1 class="title">
+        <span id="animated-text"></span>
+        <span class="cursor">|</span>
+      </h1>
+      <p class="section__text__p2">An Applied Mathematics major at UCLA</p>
+      <div class="btn-container">
+        <button class="btn btn-color-2" onclick="window.open('./assets/resume.pdf')">Download CV</button>
+        <button class="btn btn-color-1" onclick="location.href='#contact'">Contact Info</button>
+      </div>
+      <div id="socials-container">
+        <img src="./assets/linkedin.png" alt="My LinkedIn profile" class="icon" onclick="location.href='https://www.linkedin.com/in/colin-galbraith-8a8b64265/'" />
+        <img src="./assets/github.png" alt="My Github profile" class="icon" onclick="location.href='https://github.com/colingalbraith'" />
+      </div>
+    </div>
+  </section>
+  <section id="about" class="fade-in">
+    <p class="section__text__p1">Get To Know More</p>
+    <h1 class="title">About Me</h1>
+    <div class="section-container">
+      <div class="section__pic-container">
+        <img src="./assets/beach.jpg" alt="Profile picture" class="about-pic" />
+      </div>
+      <div class="about-details-container">
+        <div class="about-containers">
+          <div class="details-container">
+            <img src="./assets/education.png" alt="Education icon" class="icon" />
+            <h3>Education</h3>
+            <p>Bachelors Degree in Applied Mathematics</p>
+            <p>at UCLA</p>
+          </div>
+          <div class="details-container">
+            <img src="./assets/experience.png" alt="Education icon" class="icon" />
+            <h3>Current Role</h3>
+            <p>Intern</p>
+            <p>UCLA Radio</p>
+          </div>
+        </div>
+        <div class="text-container">
+          <p>I am a 21-year-old UCLA student majoring in applied math with a certificate (minor) in CS. I am excited about the intersections between math and data! During college, I have developed my technical and creative skills in 3D modeling/animation (Blender, Autodesk), music production (FL Studio, Audacity), coding (C++, Python, Java), and math (ODEs,PDEs,Linear Algebra...). At the same time, I have grown my own Spotify music (Lento) into a 2M stream a year business. As such, I am looking for an internship that will help me foster my entrepreneurship/creativity and explore data.</p>
+        </div>
+      </div>
+    </div>
+    <img src="./assets/arrow.png" alt="Arrow icon" class="icon arrow" onclick="location.href='#experience'" />
+  </section>
+  <section id="experience" class="fade-in">
+    <p class="section__text__p1">Explore My</p>
+    <h1 class="title">Experience</h1>
+    <div class="experience-details-container">
+      <div class="about-containers">
+        <div class="details-container">
+          <h2 class="experience-sub-title">Programming Frameworks</h2>
+          <div class="article-container">
+            <article>
+              <img src="./assets/checkmark.png" alt="Experience icon" class="icon" />
+              <div>
+                <h3>Python</h3>
+                <p>Experience</p>
+              </div>
+            </article>
+            <article>
+              <img src="./assets/checkmark.png" alt="Experience icon" class="icon" />
+              <div>
+                <h3>Java</h3>
+                <p>Intermediate</p>
+              </div>
+            </article>
+            <article>
+              <img src="./assets/checkmark.png" alt="Experience icon" class="icon" />
+              <div>
+                <h3>Matlab</h3>
+                <p>Experienced</p>
+              </div>
+            </article>
+            <article>
+              <img src="./assets/checkmark.png" alt="Experience icon" class="icon" />
+              <div>
+                <h3>C#</h3>
+                <p>Intermediate</p>
+              </div>
+            </article>
+            <article>
+              <img src="./assets/checkmark.png" alt="Experience icon" class="icon" />
+              <div>
+                <h3>C++</h3>
+                <p>Intermediate</p>
+              </div>
+            </article>
+            <article>
+              <img src="./assets/checkmark.png" alt="Experience icon" class="icon" />
+              <div>
+                <h3>Java Script</h3>
+                <p>Basic</p>
+              </div>
+            </article>
+          </div>
+        </div>
+        <div class="details-container">
+          <h2 class="experience-sub-title">Skills</h2>
+          <div class="article-container">
+            <article>
+              <img src="./assets/checkmark.png" alt="Experience icon" class="icon" />
+              <div>
+                <h3>Excel</h3>
+                <p>Intermediate</p>
+              </div>
+            </article>
+            <article>
+              <img src="./assets/checkmark.png" alt="Experience icon" class="icon" />
+              <div>
+                <h3>Tableau</h3>
+                <p>Intermediate</p>
+              </div>
+            </article>
+            <article>
+              <img src="./assets/checkmark.png" alt="Experience icon" class="icon" />
+              <div>
+                <h3>Microsoft Suite</h3>
+                <p>Experienced</p>
+              </div>
+            </article>
+            <article>
+              <img src="./assets/checkmark.png" alt="Experience icon" class="icon" />
+              <div>
+                <h3>Tensor Flow</h3>
+                <p>Basic</p>
+              </div>
+            </article>
+            <article>
+              <img src="./assets/checkmark.png" alt="Experience icon" class="icon" />
+              <div>
+                <h3>Git</h3>
+                <p>Intermediate</p>
+              </div>
+            </article>
+            <article>
+              <img src="./assets/checkmark.png" alt="Experience icon" class="icon" />
+              <div>
+                <h3>Blender</h3>
+                <p>Intermediate</p>
+              </div>
+            </article>
+          </div>
+        </div>
+      </div>
+    </div>
+    <img src="./assets/arrow.png" alt="Arrow icon" class="icon arrow" onclick="location.href='#projects'" />
+  </section>
+  <section id="projects" class="fade-in">
+    <p class="section__text__p1">Browse My Recent</p>
+    <h1 class="title">Projects</h1>
+    <div class="experience-details-container">
+      <div class="about-containers">
+        <div class="details-container color-container">
+          <div class="article-container">
+            <video src="./assets/Graphics Engine.mp4" alt="Project 1" class="project-img" autoplay loop muted></video>
+          </div>
+          <h2 class="experience-sub-title project-title">3D Graphics Engine</h2>
+          <div class="btn-container">
+            <button class="btn btn-color-2 project-btn" onclick="location.href='https://github.com/colingalbraith/3D-Graphics-Engine-'">Github</button>
+          </div>
+          <br/>
+        <p>•	Created a 3-D graphics engine in Python, using Pygame, Numpy and Numba 
+        
+          <p>•	Applied Linear Algebra to manage object movements, camera, clipping and projections
+            </p>
+        </div>
+        <div class="details-container color-container">
+          <div class="article-container">
+            <video src="./assets/HE2.mp4" alt="Project 1" class="project-img" autoplay loop muted></video>
+          </div>
+          <h2 class="experience-sub-title project-title">Heat Equation</h2>
+          <div class="btn-container">
+            <button class="btn btn-color-2 project-btn" onclick="location.href='https://github.com/colingalbraith/HeatEquation'">Github</button>
+          </div>
+          <br/>
+          <p>•	Numerical solutions to the 1D and 2D heat equation, with different boundary conditions and forcing terms(Dirichlet and Neumann)</p>
+        </div>
+        <div class="details-container color-container">
+          <div class="article-container">
+            <video src="./assets/Maze Proj.mp4" alt="Project 1" class="project-img" autoplay loop muted></video>
+          </div>
+          <h2 class="experience-sub-title project-title">RayCastMaze</h2>
+          <div class="btn-container">
+            <button class="btn btn-color-2 project-btn" onclick="location.href='https://github.com/colingalbraith/RayCastMaze-'">Github</button>
+          </div>
+          <br/>
+          <p>•	A 3D procedurally generated maze game, based on 2D ray casts, inspired by old forced perspective games!
+          <p>•	 Built-in Python using limited libraries.  </p>
+        </div>
+      </div>
+    </div>
+    <img src="./assets/arrow.png" alt="Arrow icon" class="icon arrow" onclick="location.href='#contact'" />
+  </section>
+  <!-- New Music Section -->
+  <section id="music" class="fade-in">
+    <p class="section__text__p1">Listen to My Music</p>
+    <h1 class="title">Music</h1>
+    <div class="audio-container">
+      
+      <!-- Add more audio players as needed -->
+    </div>
+    <div class="spotify-container">
+      <iframe style="border-radius:12px" src="https://open.spotify.com/embed/artist/1GM1bRnpv4kP0DhcRJkV8u?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+    </div>
+  </section>
+  <section id="contact" class="fade-in">
+    <p class="section__text__p1">Get in Touch</p>
+    <h1 class="title">Contact Me</h1>
+    <div class="contact-info-upper-container">
+      <div class="contact-info-container">
+        <img src="./assets/email.png" alt="Email icon" class="icon contact-icon email-icon" />
+        <p><a href="mailto:colingalbraith27@gmail.com">colingalbraith27@gmail.com</a></p>
+      </div>
+      <div class="contact-info-container">
+        <img src="./assets/linkedin.png" alt="LinkedIn icon" class="icon contact-icon" />
+        <p><a href="https://www.linkedin.com/in/colin-galbraith-8a8b64265/">LinkedIn</a></p>
+      </div>
+    </div>
+  </section>
+  <footer>
+    <nav>
+      <div class="nav-links-container">
         <ul class="nav-links">
           <li><a href="#about">About</a></li>
           <li><a href="#experience">Experience</a></li>
           <li><a href="#projects">Projects</a></li>
           <li><a href="#contact">Contact</a></li>
+          <li><a href="#music">Music</a></li> <!-- Added Music link -->
         </ul>
       </div>
     </nav>
-    <nav id="hamburger-nav">
-      <div class="logo">Colin Galbraith</div>
-      <div class="hamburger-menu">
-        <div class="hamburger-icon" onclick="toggleMenu()">
-          <span></span>
-          <span></span>
-          <span></span>
-        </div>
-        <div class="menu-links">
-          <li><a href="#about" onclick="toggleMenu()">About</a></li>
-          <li><a href="#experience" onclick="toggleMenu()">Experience</a></li>
-          <li><a href="#projects" onclick="toggleMenu()">Projects</a></li>
-          <li><a href="#contact" onclick="toggleMenu()">Contact</a></li>
-        </div>
-      </div>
-    </nav>
-    <section id="profile">
-      <div class="section__pic-container">
-        <img src="./assets/IMG_2638.png" class="profile_picture" />
-      </div>
-      <div class="section__text">
-        <p class="section__text__p1">Hello, I'm</p>
-        <h1 class="title">Colin Galbraith</h1>
-        <p class="section__text__p2">an Applied Mathematics major at UCLA</p>
-        <div class="btn-container">
-          <button
-            class="btn btn-color-2"
-            onclick="window.open('./assets/resume.pdf')"
-          >
-            Download CV
-          </button>
-          <button class="btn btn-color-1" onclick="location.href='#contact'">
-            Contact Info
-          </button>
-        </div>
-        <div id="socials-container">
-          <img
-            src="./assets/linkedin.png"
-            alt="My LinkedIn profile"
-            class="icon"
-            onclick="location.href='https://www.linkedin.com/in/colin-galbraith-8a8b64265/'"
-          />
-          <img
-            src="./assets/github.png"
-            alt="My Github profile"
-            class="icon"
-            onclick="location.href='https://github.com/colingalbraith'"
-          />
-        </div>
-      </div>
-    </section>
-    <section id="about">
-      <p class="section__text__p1">Get To Know More</p>
-      <h1 class="title">About Me</h1>
-      <div class="section-container">
-        <div class="section__pic-container">
-          <img
-            src="./assets/second_profile_pic.jpg"
-            alt="Profile picture"
-            class="about-pic"
-          />
-        </div>
-        <div class="about-details-container">
-          <div class="about-containers">
-            <div class="details-container">
-              <img
-                src="./assets/education.png"
-                alt="Education icon"
-                class="icon"
-              />
-              <h3>Education</h3>
-              <p>Bachelors Degree in Applied Mathematics </p>
-              <p>at UCLA</p>
-            </div>
-            <div class="details-container">
-              <img
-                src="./assets/experience.png"
-                alt="Education icon"
-                class="icon"
-              />
-              <h3>Current Role</h3>
-              <p>Intern </p>
-              <p>UCLA Radio</p>
-            </div>
-          </div>
-          <div class="text-container">
-            <p>
-              I am a 20-year-old UCLA student majoring in applied math with a certificate (minor) in CS.  I am excited about the intersections between math and the entertainment industry.  I am particularly passionate about applying STEM skills to create more realistic animations, particularly vfx and particle simulation. During college, I have developed and honed my technical and creative skills such as 3d modeling/animation (blender, Autodesk), music production (fl studio, audacity), coding (c++, python, java), and I created a community to promote artist collaborations (creative commons). At the same time, I have grown my own Spotify music (Lento) into a 2M stream a year business.  As such I am looking for an internship that will help me foster my entrepreneurship/ creativity and explore unique ways math/cs are used to enhance visual and audio experiences.
-            </p>
-          </div>
-        </div>
-      </div>
-      <img
-        src="./assets/arrow.png"
-        alt="Arrow icon"
-        class="icon arrow"
-        onclick="location.href='#experience'"
-      />
-    </section>
-    <section id="experience">
-      <p class="section__text__p1">Explore My</p>
-      <h1 class="title">Experience</h1>
-      <div class="experience-details-container">
-        <div class="about-containers">
-          <div class="details-container">
-            <h2 class="experience-sub-title">Programming Frameworks</h2>
-            <div class="article-container">
-              <article>
-                <img
-                  src="./assets/checkmark.png"
-                  alt="Experience icon"
-                  class="icon"
-                />
-                <div>
-                  <h3>C++</h3>
-                  <p>Experienced</p>
-                </div>
-              </article>
-              <article>
-                <img
-                  src="./assets/checkmark.png"
-                  alt="Experience icon"
-                  class="icon"
-                />
-                <div>
-                  <h3>Java</h3>
-                  <p>Experienced</p>
-                </div>
-              </article>
-              <article>
-                <img
-                  src="./assets/checkmark.png"
-                  alt="Experience icon"
-                  class="icon"
-                />
-                <div>
-                  <h3>Matlab</h3>
-                  <p>Experienced</p>
-                </div>
-              </article>
-              <article>
-                <img
-                  src="./assets/checkmark.png"
-                  alt="Experience icon"
-                  class="icon"
-                />
-                <div>
-                  <h3>C#</h3>
-                  <p>Intermediate</p>
-                </div>
-              </article>
-              <article>
-                <img
-                  src="./assets/checkmark.png"
-                  alt="Experience icon"
-                  class="icon"
-                />
-                <div>
-                  <h3>Python</h3>
-                  <p>Intermediate</p>
-                </div>
-              </article>
-              <article>
-                <img
-                  src="./assets/checkmark.png"
-                  alt="Experience icon"
-                  class="icon"
-                />
-                <div>
-                  <h3>Javascript</h3>
-                  <p>Basic</p>
-                </div>
-              </article>
-            </div>
-          </div>
-          <div class="details-container">
-            <h2 class="experience-sub-title">Skills</h2>
-            <div class="article-container">
-              <article>
-                <img
-                  src="./assets/checkmark.png"
-                  alt="Experience icon"
-                  class="icon"
-                />
-                <div>
-                  <h3>Unity</h3>
-                  <p>Experienced</p>
-                </div>
-              </article>
-              <article>
-                <img
-                  src="./assets/checkmark.png"
-                  alt="Experience icon"
-                  class="icon"
-                />
-                <div>
-                  <h3>Photoshop</h3>
-                  <p>Experienced</p>
-                </div>
-              </article>
-              <article>
-                <img
-                  src="./assets/checkmark.png"
-                  alt="Experience icon"
-                  class="icon"
-                />
-                <div>
-                  <h3>Microsoft Suite</h3>
-                  <p>Experienced</p>
-                </div>
-              </article>
-              <article>
-                <img
-                  src="./assets/checkmark.png"
-                  alt="Experience icon"
-                  class="icon"
-                />
-                <div>
-                  <h3>FL Studio</h3>
-                  <p>Experienced</p>
-                </div>
-              </article>
-              <article>
-                <img
-                  src="./assets/checkmark.png"
-                  alt="Experience icon"
-                  class="icon"
-                />
-                <div>
-                  <h3>Git</h3>
-                  <p>Intermediate</p>
-                </div>
-              </article>
-              <article>
-                <img
-                  src="./assets/checkmark.png"
-                  alt="Experience icon"
-                  class="icon"
-                />
-                <div>
-                  <h3>Blender</h3>
-                  <p>Intermediate</p>
-                </div>
-              </article>
-            </div>
-          </div>
-        </div>
-      </div>
-      <img
-        src="./assets/arrow.png"
-        alt="Arrow icon"
-        class="icon arrow"
-        onclick="location.href='#projects'"
-      />
-    </section>
-    <section id="projects">
-      <p class="section__text__p1">Browse My Recent</p>
-      <h1 class="title">Projects</h1>
-      <div class="experience-details-container">
-        <div class="about-containers">
-          <div class="details-container color-container">
-            <div class="article-container">
-              <img
-                src="https://img.itch.zone/aW1nLzEzNTk5MjMwLmpwZw==/347x500/mpox9p.jpg"
-                alt="Project 1"
-                class="project-img"
-              />
-            </div>
-            <h2 class="experience-sub-title project-title">Forget Me Not</h2>
-            <div class="btn-container">
-              <button
-                class="btn btn-color-2 project-btn"
-                onclick="location.href='https://github.com/colingalbraith/LD54_Team4'"
-              >
-                Github
-              </button>
-              <button
-                class="btn btn-color-2 project-btn"
-                onclick="location.href='https://ldjam.com/events/ludum-dare/54/forget-me-not?id=148908&key=1a0dd4b79fbe5e18877207d669c550837cf8aa6e90460a4cd26ea02f181b071d'"
-              >
-                Ludum Dare Entry
-              </button>
-            </div>
-            <p>
-              An old woman with Alzheimer’s is trapped in a coma. As the player, we play through the old woman’s minds as her mind’s capabilities grow weaker and weaker. We go through the rooms of her memories and help her piece together her mismatched memories. The goal of the game is to reach the final room, where she finally remembers her granddaughter.
+    <p>&copy; 2023 Colin Galbraith. All rights reserved.</p>
+  </footer>
+  <script>
+    function toggleMenu() {
+      const menu = document.querySelector(".menu-links");
+      const icon = document.querySelector(".hamburger-icon");
+      menu.classList.toggle("open");
+      icon.classList.toggle("open");
+    }
 
-This game is interpreting limited space as limited space in her memory.
-            </p>
-          </div>
-          <div class="details-container color-container">
-            <div class="article-container">
-              <img
-                src="./assets/letterbox.png"
-                alt="Project 2"
-                class="project-img"
-              />
-            </div>
-            <h2 class="experience-sub-title project-title">Letterbox</h2>
-            <p>
-              Partnered with the Springs living center in Oregon to create a virtual pen-pal web app for elders to connect, started during covid. 
-            </p>
-            </div>
-          </div>
-          <div class="details-container color-container">
-            <div class="article-container">
-              <img
-                src="./assets/Untitled design-1.png"
-                alt="Project 3"
-                class="project-img"
-              />
-            </div>
-            <h2 class="experience-sub-title project-title">8-Bit BBall</h2>
-            <div class="btn-container">
-              <button
-                class="btn btn-color-2 project-btn"
-                onclick="location.href='https://github.com/colingalbraith/Personal_Game_Progress'"
-              >
-                Github
-              </button>              
-            </div>
-            <br/>
-            <p>
-              Created a 2-D basketball game, inspired by Flappy golf. Did full stack development, ranging from the assets to all of the code myself. 
-            </p>
-          </div>
-        </div>
-      </div>
-      <img
-        src="./assets/arrow.png"
-        alt="Arrow icon"
-        class="icon arrow"
-        onclick="location.href='#contact'"
-      />
-    </section>
-    <section id="contact">
-      <p class="section__text__p1">Get in Touch</p>
-      <h1 class="title">Contact Me</h1>
-      <div class="contact-info-upper-container">
-        <div class="contact-info-container">
-          <img
-            src="./assets/email.png"
-            alt="Email icon"
-            class="icon contact-icon email-icon"
-          />
-          <p><a href="mailto:colingalbraith27@gmail.com">colingalbraith27@gmail.com</a></p>
-        </div>
-        <div class="contact-info-container">
-          <img
-            src="./assets/linkedin.png"
-            alt="LinkedIn icon"
-            class="icon contact-icon"
-          />
-          <p><a href="https://www.linkedin.com/in/colin-galbraith-8a8b64265/">LinkedIn</a></p>
-        </div>
-      </div>
-    </section>
-    <footer>
-      <nav>
-        <div class="nav-links-container">
-          <ul class="nav-links">
-            <li><a href="#about">About</a></li>
-            <li><a href="#experience">Experience</a></li>
-            <li><a href="#projects">Projects</a></li>
-            <li><a href="#contact">Contact</a></li>
-          </ul>
-        </div>
-      </nav>
-    </footer>
-    <script src="script.js"></script>
-  </body>
+    document.addEventListener('DOMContentLoaded', function() {
+      const textElement = document.getElementById('animated-text');
+      const cursorElement = document.querySelector('.cursor');
+      const texts = ['Colin Galbraith', 'Lento', 'A Musician', 'A Data Scientist', 'Game Developer', 'Data Analyst'];
+      let textIndex = 0;
+      let charIndex = 0;
+      let typingSpeed = 100;
+      let deletingSpeed = 50;
+      let delayBetweenTexts = 2000; // Delay between different texts
+      let delayBeforeDeleting = 1000; // Delay before starting to delete the text
+
+      function type() {
+        if (charIndex < texts[textIndex].length) {
+          textElement.textContent += texts[textIndex].charAt(charIndex);
+          charIndex++;
+          setTimeout(type, typingSpeed);
+        } else {
+          setTimeout(deleteText, delayBeforeDeleting);
+        }
+      }
+
+      function deleteText() {
+        if (charIndex > 0) {
+          textElement.textContent = texts[textIndex].substring(0, charIndex - 1);
+          charIndex--;
+          setTimeout(deleteText, deletingSpeed);
+        } else {
+          textIndex = (textIndex + 1) % texts.length;
+          setTimeout(type, delayBetweenTexts);
+        }
+      }
+
+      type();
+    });
+
+    window.addEventListener('load', function() {
+      document.body.classList.add('loaded');
+      document.getElementById('loading').style.display = 'none'; // Hide loading screen
+      handleScroll(); // Check scroll position on load
+    });
+
+    window.addEventListener('scroll', handleScroll);
+
+    function handleScroll() {
+      document.querySelectorAll('.fade-in').forEach(section => {
+        if (section.getBoundingClientRect().top < window.innerHeight - 50) { // Adjust to make sections fade in earlier
+          section.classList.add('visible');
+        }
+      });
+    }
+  </script>
+</body>
 </html>

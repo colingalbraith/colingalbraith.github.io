@@ -305,6 +305,12 @@ section {
   border: rgb(53, 53, 53) 0.1rem solid;
   border-color: rgb(163, 163, 163);
   text-align: center;
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.details-container:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 .section-container {
@@ -366,6 +372,12 @@ article .icon {
 .color-container {
   border-color: rgb(163, 163, 163);
   background: rgb(250, 250, 250);
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.color-container:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 .project-img {
@@ -387,11 +399,12 @@ article .icon {
 /* CONTACT */
 
 #contact {
-  margin-top: 60%;
+  margin-top: 5rem; /* Adjust the margin-top to ensure it doesn't push too far down */
   display: flex;
   justify-content: center;
   flex-direction: column;
-  height: 70vh;
+  height: auto; /* Increase min-height to ensure enough space */
+  padding-bottom: 2rem; /* Add padding to ensure it's fully visible */
 }
 
 .contact-info-upper-container {
@@ -428,10 +441,90 @@ article .icon {
 /* FOOTER SECTION */
 
 footer {
-  height: 26vh;
+  height: auto; /* Adjust height to auto to fit content */
   margin: 0 1rem;
+  padding: 2rem 0; /* Add padding for better spacing */
 }
 
 footer p {
   text-align: center;
 }
+
+/* Typing effect styles */
+#animated-text {
+  display: inline-block;
+}
+
+.cursor {
+  display: inline-block;
+  background-color: black;
+  width: 0px;
+  animation: blink 0.7s infinite;
+}
+
+@keyframes blink {
+  0%, 50% {
+    opacity: 1;
+  }
+  50.1%, 100% {
+    opacity: 0;
+  }
+}
+
+/* Fade in and fade out animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+.fade-in {
+  opacity: 0;
+  animation: fadeIn 1s forwards;
+}
+
+.loaded .fade-in {
+  opacity: 1;
+}
+
+.loaded .fade-out {
+  opacity: 0;
+}
+
+.fade-out {
+  opacity: 1;
+  animation: fadeOut 1s forwards;
+}
+
+/* Button hover effect */
+.btn:hover {
+  transform: scale(1.05);
+  transition: transform 0.3s ease-in-out;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Image hover effect */
+.section__pic-container img {
+  transition: transform 0.3s ease-in-out;
+}
+
+.section__pic-container img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+
+
+
