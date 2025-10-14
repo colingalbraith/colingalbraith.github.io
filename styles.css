@@ -1,0 +1,616 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: monospace;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 20px;
+    line-height: 1.6;
+    background-color: #ffffff;
+    color: #000000;
+    overflow-x: hidden;
+    width: 100%;
+}
+
+html {
+    overflow-x: hidden;
+}
+
+/* Navigation styles */
+nav {
+    background-color: #000000;
+    color: #ffffff;
+    padding: 15px;
+    margin-bottom: 20px;
+    text-align: center;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+nav a {
+    text-decoration: none;
+    color: #ffffff;
+    font-weight: bold;
+    white-space: nowrap;
+}
+
+/* Section styles */
+section {
+    margin-bottom: 40px;
+}
+
+/* ASCII art */
+.ascii-art {
+    font-size: 10px;
+    line-height: 1.2;
+    overflow-x: auto;
+    text-align: center;
+    white-space: pre;
+    -webkit-overflow-scrolling: touch;
+}
+
+.ascii-art-small {
+    font-size: 8px;
+    line-height: 1.1;
+    text-align: center;
+    overflow-x: auto;
+    white-space: pre;
+    -webkit-overflow-scrolling: touch;
+}
+
+/* Image container */
+.image-container {
+    text-align: center;
+    margin: 30px 0;
+}
+
+.image-container img {
+    max-width: 300px;
+    width: 100%;
+    border-radius: 10px;
+    margin: 10px;
+}
+
+/* Section headers */
+.section-title {
+    font-size: 12px;
+    line-height: 1.2;
+    overflow-x: auto;
+    white-space: pre;
+    -webkit-overflow-scrolling: touch;
+}
+
+h3 {
+    margin-top: 30px;
+    color: #000000;
+    border-bottom: 1px solid #000000;
+    padding-bottom: 5px;
+}
+
+/* Resume box */
+.resume-box {
+    margin: 20px 0;
+    padding: 15px;
+    border: 2px solid #000000;
+}
+
+.resume-box a {
+    color: #000000;
+    text-decoration: underline;
+    font-weight: bold;
+}
+
+/* Project styles */
+.project {
+    margin-bottom: 40px;
+    border-left: 3px solid #000000;
+    padding-left: 15px;
+}
+
+.project h3 {
+    color: #000000;
+    margin-top: 0;
+}
+
+.project img,
+.project video {
+    max-width: 100%;
+    width: 100%;
+    height: auto;
+    border: 2px solid #000000;
+    margin: 10px 0;
+    display: block;
+}
+
+.project a {
+    color: #000000;
+    text-decoration: underline;
+}
+
+/* Two column images */
+.two-column-images {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: space-between;
+}
+
+.two-column-images img {
+    width: 48%;
+    height: auto;
+    border: 2px solid #000000;
+    margin: 10px 0;
+}
+
+/* Experience card styles */
+.experience-card {
+    margin-bottom: 30px;
+    padding: 20px;
+    border: 2px solid #000000;
+}
+
+.experience-card h3 {
+    margin-top: 0;
+    font-size: 1.1em;
+    word-wrap: break-word;
+}
+
+.experience-card .company {
+    margin: 5px 0;
+}
+
+.experience-card .location-date {
+    margin: 5px 0;
+    font-style: italic;
+}
+
+.experience-card ul {
+    margin-top: 10px;
+    padding-left: 20px;
+}
+
+.experience-card li {
+    margin-bottom: 8px;
+    line-height: 1.5;
+}
+
+/* U logo specific styling */
+.u-logo {
+    color: #CC0000;
+    font-weight: bold;
+    line-height: 1.1;
+    font-size: 5px;
+    overflow-x: auto;
+    white-space: pre;
+    -webkit-overflow-scrolling: touch;
+}
+
+/* Music section styles */
+#music h3 {
+    margin-top: 20px;
+    font-size: 1.3em;
+}
+
+#music p {
+    margin-bottom: 30px;
+}
+
+.music-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    align-items: start;
+    margin-top: 20px;
+}
+
+.lento-image-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.lento-gif {
+    width: 100%;
+    max-width: 400px;
+    border: 2px solid #000000;
+    border-radius: 10px;
+    display: block;
+}
+
+.spotify-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.spotify-wrapper iframe {
+    width: 100%;
+    max-width: 500px;
+    min-height: 352px;
+}
+
+/* Footer */
+footer {
+    margin-top: 60px;
+    padding-top: 20px;
+    border-top: 2px solid #000000;
+    text-align: center;
+    color: #000000;
+    font-size: 0.9em;
+}
+
+.footer-decoration {
+    font-size: 8px;
+    line-height: 1.1;
+}
+
+/* Side by side ASCII container */
+.ascii-side-by-side {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 30px;
+    margin: 20px 0;
+    flex-wrap: wrap;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+.ascii-side-by-side > pre {
+    flex: 0 0 auto;
+    margin: 0;
+    max-width: 45%;
+}
+
+.ascii-side-by-side .ascii-art-small {
+    font-size: 6px;
+}
+
+.ascii-side-by-side .ascii-art {
+    font-size: 4px;
+}
+
+/* Mobile responsive styles */
+@media screen and (max-width: 768px) {
+    body {
+        padding: 15px;
+        font-size: 14px;
+    }
+
+    nav {
+        padding: 12px 8px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px;
+        row-gap: 8px;
+    }
+
+    nav a {
+        margin: 0;
+        font-size: 14px;
+        padding: 8px 12px;
+        min-height: 44px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .ascii-art {
+        font-size: 7px;
+        line-height: 1.15;
+        overflow-x: auto;
+        white-space: pre;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .ascii-art-small {
+        font-size: 6px;
+        line-height: 1.05;
+        overflow-x: auto;
+        white-space: pre;
+        -webkit-overflow-scrolling: touch;
+    }
+    
+    .u-logo {
+        font-size: 4px;
+    }
+
+    .image-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+    }
+
+    .image-container img {
+        max-width: 100%;
+        margin: 0;
+    }
+
+    .two-column-images {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .two-column-images img {
+        width: 100%;
+        margin: 0;
+    }
+
+    .section-title {
+        font-size: 11px;
+        overflow-x: auto;
+        white-space: pre;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    h3 {
+        font-size: 1.2em;
+        word-wrap: break-word;
+    }
+
+    p {
+        font-size: 15px;
+        line-height: 1.6;
+    }
+
+    .project {
+        margin-bottom: 35px;
+    }
+
+    .project video,
+    .project img {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .resume-box {
+        padding: 15px;
+    }
+
+    .resume-box a {
+        padding: 10px 15px;
+        min-height: 44px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: #f0f0f0;
+        border: 1px solid #000000;
+        text-decoration: none;
+    }
+
+    .resume-box a:hover {
+        background-color: #000000;
+        color: #ffffff;
+    }
+
+    /* Touch-friendly links */
+    section a:not(nav a):not(.resume-box a) {
+        padding: 5px 0;
+        min-height: 44px;
+        display: inline-flex;
+        align-items: center;
+    }
+
+    .ascii-side-by-side {
+        flex-direction: column;
+        gap: 15px;
+        align-items: center;
+    }
+
+    .ascii-side-by-side > pre {
+        max-width: 100%;
+    }
+
+    .ascii-side-by-side .ascii-art-small {
+        font-size: 5px;
+    }
+
+    .ascii-side-by-side .ascii-art {
+        font-size: 3px;
+    }
+
+    .experience-card {
+        padding: 15px;
+        margin-bottom: 20px;
+    }
+
+    .experience-card h3 {
+        font-size: 1em;
+    }
+
+    .experience-card ul {
+        padding-left: 18px;
+    }
+
+    .experience-card li {
+        font-size: 15px;
+    }
+
+    .music-content {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    .lento-gif {
+        max-width: 100%;
+    }
+    
+    .spotify-wrapper iframe {
+        height: 352px;
+        min-height: 352px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    body {
+        padding: 10px;
+        font-size: 13px;
+    }
+
+    nav {
+        padding: 10px 5px;
+        gap: 8px;
+        row-gap: 6px;
+    }
+
+    nav a {
+        margin: 0;
+        font-size: 12px;
+        padding: 8px 10px;
+        flex: 1 1 auto;
+        min-width: 80px;
+    }
+
+    .ascii-art {
+        font-size: 5px;
+        line-height: 1.1;
+    }
+
+    .ascii-art-small {
+        font-size: 4px;
+        line-height: 1;
+    }
+    
+    .u-logo {
+        font-size: 3px;
+    }
+
+    .section-title {
+        font-size: 9px;
+    }
+
+    h3 {
+        font-size: 1.1em;
+    }
+
+    p {
+        font-size: 14px;
+    }
+
+    .project {
+        padding-left: 10px;
+        margin-bottom: 30px;
+    }
+
+    .image-container {
+        gap: 10px;
+    }
+
+    .resume-box {
+        padding: 12px;
+    }
+
+    .ascii-side-by-side {
+        gap: 10px;
+    }
+
+    .ascii-side-by-side .ascii-art-small {
+        font-size: 4px;
+    }
+
+    .ascii-side-by-side .ascii-art {
+        font-size: 2.5px;
+    }
+
+    .experience-card {
+        padding: 12px;
+        margin-bottom: 15px;
+    }
+
+    .experience-card h3 {
+        font-size: 0.95em;
+    }
+
+    .experience-card ul {
+        padding-left: 15px;
+    }
+
+    .experience-card li {
+        font-size: 14px;
+        margin-bottom: 6px;
+    }
+
+    .music-content {
+        gap: 20px;
+    }
+    
+    .spotify-wrapper iframe {
+        height: 352px;
+        min-height: 300px;
+    }
+}
+
+@media screen and (max-width: 360px) {
+    body {
+        padding: 8px;
+        font-size: 13px;
+    }
+
+    nav a {
+        font-size: 11px;
+        padding: 6px 8px;
+        min-width: 70px;
+    }
+
+    .ascii-art {
+        font-size: 4px;
+    }
+
+    .ascii-art-small {
+        font-size: 3px;
+    }
+    
+    .u-logo {
+        font-size: 2px;
+    }
+
+    .section-title {
+        font-size: 8px;
+    }
+
+    h3 {
+        font-size: 1em;
+    }
+
+    p, li {
+        font-size: 13px;
+    }
+
+    .ascii-side-by-side {
+        gap: 8px;
+    }
+
+    .ascii-side-by-side .ascii-art-small {
+        font-size: 3px;
+    }
+
+    .ascii-side-by-side .ascii-art {
+        font-size: 2px;
+    }
+
+    .experience-card {
+        padding: 10px;
+        margin-bottom: 12px;
+    }
+
+    .experience-card h3 {
+        font-size: 0.9em;
+    }
+
+    .experience-card li {
+        font-size: 13px;
+        margin-bottom: 5px;
+    }
+    
+    .spotify-wrapper iframe {
+        height: 300px;
+        min-height: 280px;
+    }
+}
